@@ -13,7 +13,7 @@
 	mysqli_query($con, "INSERT INTO komen (ID, Nama, Waktu, Komentar)
 				VALUES ('$id', '$name', '$time', '$comment')");	
 	
-	$res = mysqli_query($con, "SELECT * FROM komen WHERE ID=$id");
+	$res = mysqli_query($con, "SELECT * FROM komen WHERE ID=$id ORDER BY Waktu DESC");
 	while($tabel = mysqli_fetch_array($res)){
 		echo"
 			<li class='art-list-item'>
