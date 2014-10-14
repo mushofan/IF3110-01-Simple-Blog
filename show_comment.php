@@ -5,7 +5,7 @@
 	}
 	
 	$Id = $_GET['ID'];
-	$res = mysqli_query($con, "SELECT * FROM komen WHERE ID=$Id;");
+	$res = mysqli_query($con, "SELECT * FROM komen WHERE ID=$Id ORDER BY Waktu DESC;");
 	
 	while($tabel = mysqli_fetch_array($res)){
 		echo"
