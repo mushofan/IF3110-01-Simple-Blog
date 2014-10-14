@@ -29,7 +29,21 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<title>Simple Blog | Apa itu Simple Blog?</title>
+	<?php
+		$con = mysqli_connect("localhost", "root", "", "dbblog");
+				
+			if(mysqli_connect_errno()){
+				echo "Gagal menghubungkan ke basis data blog";
+			}
+			$id = $_GET['ID'];
+			$res = mysqli_query($con, "SELECT * FROM post WHERE ID=$id");
+			while ($tabel = mysqli_fetch_array($res)){
+				echo"
+					<title>Simple Blog | ".$tabel['Judul']."</title>
+				";
+			}
+			mysqli_close($con);
+	?>
 
 
 </head>
